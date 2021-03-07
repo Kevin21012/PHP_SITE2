@@ -6,9 +6,8 @@ Your section -->
 <html>
 <head>
 <?php
-session_start();
 include 'library/header.php';
-
+session_start();
 head();
 ?>
 <title>Landing Page</title>
@@ -23,7 +22,7 @@ head();
 
 include 'library/footer.php';
 footer();
-
+boot();
 
 ?>
 </html>

@@ -6,17 +6,17 @@ Your section -->
 <html>
 <head>
 <?php
-session_start();
-session_destroy();
 include 'library/header.php';
 
 head();
+
+
 ?>
-<title>LOGOUT</title>
+<title>Cart</title>
 </head>
 
 <body>
-<p>This page will be the logout page</p>
+<p>This page will be a shopping cart  page</p>
 </body>
 <?php
 

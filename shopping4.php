@@ -9,6 +9,25 @@ Your section -->
 include 'library/header.php';
 
 head();
+session_start();
+if (isset($_POST['submit'])) {
+ if($_POST['submit'] == 'Buy one')
+ {
+  $_SESSION['cheese']++;
+ }
+ elseif($_POST['submit'] == 'Remove one'){
+ $_SESSION['cheese']--;
+
+}
+ elseif($_POST['submit'] == 'Remove all')
+{
+ $_SESSION['cheese']=0;
+
+ }
+}
+else{
+ $_SESSION['cheese']=0;
+}
 
 
 ?>
@@ -22,7 +41,7 @@ head();
 
 include 'library/footer.php';
 footer();
-
+boot();
 
 ?>
 </html>

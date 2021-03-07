@@ -16,8 +16,19 @@ echo '<a href="shopping3.php">Shopping3</a><br>';
 echo '<a href="shopping4.php">Shopping4</a><br>';
 }
 
+function boot()
+{ 
+ if (!isset($_SESSION['user']))
+ {
+  header("Location: login.php");
+ 
+ }
+ 
+ 
 
 
+
+}
 
 
 
