@@ -44,7 +44,7 @@ else{
 
 
 </form>
-<p> Your cart contains <?php echo $_SESSION['cheetos']; ?> </p>
+<p> Your cart contains <?php echo $_SESSION['cheetos']; ?> cheetos</p>
 <?php
 
 include 'library/footer.php';

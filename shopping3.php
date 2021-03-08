@@ -10,7 +10,7 @@ include 'library/header.php';
 
 head();
 
-ession_start();
+session_start();
 if (isset($_POST['submit'])) {
  if($_POST['submit'] == 'Buy one')
  {
@@ -36,6 +36,15 @@ else{
 
 <body>
 <p>This page will be the third shopping  page</p>
+<form method="Post">
+<input type='submit' name='submit' value='Buy one'>
+<input type='submit' name='submit' value='Remove one'>
+<input type='submit' name='submit' value='Remove all'>
+
+
+</form>
+<p> Your cart contains <?php echo $_SESSION['gummys']; ?> gummys </p>
+
 </body>
 <?php
 

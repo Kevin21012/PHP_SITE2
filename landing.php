@@ -9,6 +9,11 @@ Your section -->
 include 'library/header.php';
 session_start();
 head();
+$_SESSION['gummys']=0;
+$_SESSION['sprite']=0;
+$_SESSION['cheetos']=0;
+$_SESSION['cheese']=0;
+
 ?>
 <title>Landing Page</title>
 </head>

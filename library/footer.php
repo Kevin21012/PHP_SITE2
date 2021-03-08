@@ -14,6 +14,8 @@ echo '<a href="shopping1.php">Shopping1</a><br>';
 echo '<a href="shopping2.php">Shopping2</a><br>';
 echo '<a href="shopping3.php">Shopping3</a><br>';
 echo '<a href="shopping4.php">Shopping4</a><br>';
+echo '<a href="cart.php">Cart</a><br>';
+
 }
 
 function boot()

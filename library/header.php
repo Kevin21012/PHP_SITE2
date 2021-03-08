@@ -11,7 +11,7 @@ function head(){
 
 echo '<p>Matthew M Bennett</p>';
 echo '<p>CSC-155</p>';
-echo '<img src="https://static.wikia.nocookie.net/minecraft/images/4/40/Block_of_Diamond.png/revision/latest?cb=20200825193522"  height="100" width="100">';
+echo '<img src="GrassNew.png"  height="100" width="100">';
 }
 
 function destroy(){
