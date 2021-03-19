@@ -11,7 +11,10 @@ function head(){
 
 echo '<p>Matthew M Bennett</p>';
 echo '<p>CSC-155</p>';
-echo '<img src="GrassNew.png"  height="100" width="100">';
+echo '<img src="images/GrassNew.png"  height="100" width="100">';
+echo '<br>';
+error_reporting(E_ALL ^ E_NOTICE);
+echo  $_COOKIE["username"] ;
 }
 
 function destroy(){
