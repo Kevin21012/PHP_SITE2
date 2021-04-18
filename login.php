@@ -6,8 +6,11 @@ Your section -->
 <head>
 <title>Login to the Website</title>
 <?php
+require("library/header.php");
 
-include 'library/header.php';
+$conn = connect();
+
+
 
 echo head();
 error_reporting(E_ALL ^ E_NOTICE);
@@ -26,29 +29,30 @@ function getPost($name)
 session_start();
 
 
-
-if (isset($_POST["submit"]))
-{
-
-
-if ( $_POST["user"] == "login" and $_POST["passwd"] == "passwd" )
- {
- $_SESSION["user"] = $_POST["user"];
- error_reporting(E_ALL ^ E_NOTICE);
- header("Location: landing.php");
-
- }
-else 
- {
-  echo "Wrong username and passwd";
- }
-
+if ( isset($_POST["submit"]) )
+{ 
+    $row = finduser($conn, getPost("user"));
+    if ($row == 0) 
+    {
+    echo "wrong username or password";
+    }
+    else if ( password_verify($_POST["passwd"], $row['encrypted_password'] ))
+    {
+    $_SESSION["user"] =  getPost("user");
+    $_SESSION["group"] =  $row['usergroup'];
+    header("Location: landing.php");
+    }
+    else 
+    {
+    echo "Something went wrong try again";
+    }
 }
+
 ?>
 
 
 <body>
-<h3>This is not a real login,use your real password and I'll steal your gold username=login password=passwd</h3>
+<h3>This is not a real login,use your real password and I'll steal your gold username=loginweb password=passwd</h3>
 <form method='POST'>
 <input type='text' name='user' value='<?php echo getPost("user");?>'> <br>
 <input type='password' name='passwd' value='<?php echo getPost("passwd");?>'> <br>

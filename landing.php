@@ -9,19 +9,24 @@ Your section -->
 include 'library/header.php';
 session_start();
 head();
+
 $_SESSION['gummys']=0;
 $_SESSION['sprite']=0;
 $_SESSION['cheetos']=0;
 $_SESSION['cheese']=0;
-
+$cookie_value = $_POST["username"];
+setcookie('username', $cookie_value, time() + (86400 * 30), "/"); 
 ?>
 <title>Landing Page</title>
 </head>
 
 <body>
 
-<?php echo $_SESSION['user'] ?>
-<p>This page will be the landing page</p>
+<form method='POST'>
+<input type='text' name='username' value=''> <br>
+<input type='submit' name='submit'>
+</form>
+
 </body>
 <?php
 

@@ -22,4 +22,37 @@ function destroy(){
 session_unset();
 }
 
+
+
+
+
+
+function connect()
+{
+    $user = "mbennett43";  
+    $conn = mysqli_connect("localhost",$user,$user,$user);
+    echo "connection found";
+    return $conn;
+}
+
+ function finduser($conn, $username)
+{
+    $stmt = $conn->prepare("SELECT * FROM newuser WHERE username=?");
+    $stmt->bind_param("s", $username);
+    
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $num_rows = mysqli_num_rows($result);
+    if ($num_rows == 0)
+    {
+    return 0;
+    }
+    else 
+    {
+    return $result->fetch_assoc();     
+    }    
+}
+
+
+
 ?>
