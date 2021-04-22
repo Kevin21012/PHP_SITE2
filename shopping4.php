@@ -7,9 +7,8 @@ Your section -->
 <head>
 <?php
 include 'library/header.php';
-
+$conn = connect();
 head();
-session_start();
 if (isset($_POST['submit'])) {
  if($_POST['submit'] == 'Buy one')
  {
@@ -31,22 +30,58 @@ else{
 
 
 ?>
-<title>ShoppingPage4</title>
+<title>Shoppingpage4</title>
+<style>
+
+.divone{
+ background-color: lightgrey;
+ width: 200px;
+  margin: auto;
+  border: 1px solid black;
+}
+.divtwo{
+ background-color: lightgrey;
+  width: 120px;
+  margin: auto;
+  border: 1px solid black;
+}
+.divthree{
+ background-color:lightgrey;
+  width: 120px;
+  margin: left;
+  border: 1px solid black;
+}
+
+body{
+background-image:url("https://images.wsj.net/im-57265?width=1280&size=1.33333333");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: 750px 650px;
+background-color: lightblue;
+}
+
+p{text-align:center;}
+
+</style>
+
 </head>
 
 <body>
-<p>Order some cheese</p>
 
+<div class="divone">
+<p>Order some Cheese</p>
 
-<form method="Post">
-<input type='submit' name='submit' value='Buy one'>
-<input type='submit' name='submit' value='Remove one'>
-<input type='submit' name='submit' value='Remove all'>
-
-
+<form align="center" method="Post">
+<input type='submit' name='submit' value='Buy one'><br>
+<input type='submit' name='submit' value='Remove one'><br>
+<input type='submit' name='submit' value='Remove all'><br>
 </form>
-<p> Your cart contains <?php echo $_SESSION['cheese']; ?> cheese </p>
-
+</div>
+<br>
+<div class="divone">
+<p>   Your cart contains <?php echo $_SESSION['cheese']; ?> cheese</p>
+</div>
 </body>
 <?php
 

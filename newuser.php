@@ -7,9 +7,8 @@ require("library/header.php");
 $conn = connect();
 
 
-function findpost( $name )  #version 1
+function findpost( $name )
 {
-# check to see if it been used, if it has, return it
     if ( isset($_POST[$name]) ) 
     {
         return htmlspecialchars($_POST[$name]);
@@ -48,14 +47,40 @@ if (isset ($_POST["submit"]))
         $email = findpost('email');
         $group = findpost('groupone');        
         $stmt->execute();
-        echo '<p>success</p>';
       }
     }
   }
 ?>
+<style>
+
+.divone{
+ background-color: lightgrey;
+ width: 200px;
+  margin: auto;
+  border: 1px solid black;
+}
+.divtwo{
+ background-color: lightgrey;
+  width: 120px;
+  margin: auto;
+  border: 1px solid black;
+  text-align:center;
+}
+
+body{
+background-color:orange;
+
+}
+
+
+p,form,a{
+text-align:center;
+}
+
+</style>
 </head>
 <body>
-
+<div class="divone">
 <form method='POST'>
 <p>Email</p>  
 <input type='text' name='email' value=''><br>
@@ -84,8 +109,12 @@ if (isset ($_POST["submit"]))
 <br>
 <input type='submit' name='submit' value='Cancel'>
 </form>
+</div>
 
+<br><br>
+<div class="divtwo">
 <a href="login.php">Back to login</a>
+</div>
 </body>
 </html>
 

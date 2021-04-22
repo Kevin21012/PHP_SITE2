@@ -5,17 +5,22 @@ Your section -->
 <?php
 function footer(){
 
-echo '<img src="images/Block_of_Diamond_Old.png"  height="100" width="100">';
-echo '<p>Links</p>';
-echo '<p>----------------</p>';
-echo '<a href="newuser.php">Make Account</a><br>';
+echo '<br><br><div class="divtwo" align="center">';
+echo '<p>Links
+<br>----------------</p>
+<a href="newuser.php">Make Account</a><br>';
 echo '<a href="landing.php">Landing</a><br>';
 echo '<a href="logout.php">Lougout</a><br>';
-echo '<a href="shopping1.php">Shopping1</a><br>';
-echo '<a href="shopping2.php">Shopping2</a><br>';
-echo '<a href="shopping3.php">Shopping3</a><br>';
-echo '<a href="shopping4.php">Shopping4</a><br>';
+echo '<a href="shopping.php">Shopping</a><br>';
 echo '<a href="cart.php">Cart</a><br>';
+if(isset($_SESSION['group']) && $_SESSION['group'] == "admin"){
+
+   echo "<a href='orders.php'>Orders</a><br>";
+   echo "<a href='users.php'>Users</a><br>";
+}
+
+echo '<br></div>';
+echo '<br><div align="center"><img src="images/Block_of_Diamond_Old.png"  height="100" width="100"><br></div>';
 
 }
 

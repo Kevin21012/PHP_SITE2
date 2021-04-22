@@ -6,17 +6,46 @@ Your section -->
 <html>
 <head>
 <?php
-session_start();
-session_destroy();
 include 'library/header.php';
-header( "refresh:5;url=login.php" );
 head();
+session_destroy();
+header( "refresh:5;url=login.php" );
 ?>
 <title>LOGOUT</title>
+<style>
+
+.divone{
+ background-color: lightgrey;
+ width: 200px;
+  margin: auto;
+  border: 1px solid black;
+}
+.divtwo{
+ background-color: lightgrey;
+  width: 120px;
+  margin: auto;
+  border: 1px solid black;
+}
+
+body{
+background-color:lightblue;
+
+
+}
+</style>
+
 </head>
 
 <body>
-<p><center>Goobye</center></p>
+
+<div class="divone";
+<p><center><h2>Goodbye</h2></center></p>
+</div>
+
+
+
+
+
 </body>
 <?php
 

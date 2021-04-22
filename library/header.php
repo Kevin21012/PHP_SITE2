@@ -6,16 +6,41 @@ Your section -->
 
 
 
+
+
 function head(){
-
-
-echo '<p>Matthew M Bennett</p>';
+session_start();
+if( $_SESSION['group'] == "user"){
+echo '<div class="divthree" text-align="center">';
+echo '<p>admin group</p>';
 echo '<p>CSC-155</p>';
-echo '<img src="images/GrassNew.png"  height="100" width="100">';
-echo '<br>';
+
+echo '<img  src="images/GrassNew.png"  height="50" width="50"><br>';
 error_reporting(E_ALL ^ E_NOTICE);
-echo  $_COOKIE["username"] ;
+echo $_COOKIE["username"] ;
+echo '</div>';
+
 }
+
+else{
+echo '<div class="divthree" text-align="center">';
+echo '<p>admin group</p>';
+echo '<p>CSC-155</p>';
+
+echo '<img  src="images/GrassNew.png"  height="50" width="50"><br>';
+error_reporting(E_ALL ^ E_NOTICE);
+echo $_COOKIE["username"] ;
+echo '</div>';
+}
+
+
+
+
+}
+
+
+
+
 
 function destroy(){
 
@@ -31,8 +56,16 @@ function connect()
 {
     $user = "mbennett43";  
     $conn = mysqli_connect("localhost",$user,$user,$user);
-    echo "connection found";
     return $conn;
+}
+
+function error( $name )  
+{
+    if ( isset($_POST[$name]) ) 
+    {
+        return htmlspecialchars($_POST[$name]);
+    }
+    return "";
 }
 
  function finduser($conn, $username)
@@ -52,7 +85,5 @@ function connect()
     return $result->fetch_assoc();     
     }    
 }
-
-
 
 ?>

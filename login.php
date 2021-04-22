@@ -12,33 +12,22 @@ $conn = connect();
 
 
 
-echo head();
 error_reporting(E_ALL ^ E_NOTICE);
 
-function getPost($name)
-
-{
-        error_reporting(E_ALL ^ E_NOTICE);
-        if ( isset($_POST[$name]))
-       {
-        return  htmlspecialchars($_POST[$name]);
-      }
-        return "";
-}
 
 session_start();
 
 
 if ( isset($_POST["submit"]) )
 { 
-    $row = finduser($conn, getPost("user"));
+    $row = finduser($conn, error("user"));
     if ($row == 0) 
     {
     echo "wrong username or password";
     }
     else if ( password_verify($_POST["passwd"], $row['encrypted_password'] ))
     {
-    $_SESSION["user"] =  getPost("user");
+    $_SESSION["user"] =  error("user");
     $_SESSION["group"] =  $row['usergroup'];
     header("Location: landing.php");
     }
@@ -49,16 +38,41 @@ if ( isset($_POST["submit"]) )
 }
 
 ?>
+<style>
 
+.divone{
+ background-color: lightgrey;
+ width: 200px;
+  margin: auto;
+  border: 1px solid black;
+}
+.divtwo{
+ background-color: lightgrey;
+  width: 120px;
+  margin: auto;
+  border: 1px solid black;
+}
 
+body{
+background-color:lightblue;
+}
+form{
+  text-align: center;
+}
+
+</style>
+
+</head>
 <body>
-<h3>This is not a real login,use your real password and I'll steal your gold username=loginweb password=passwd</h3>
+<div class="divone">
 <form method='POST'>
-<input type='text' name='user' value='<?php echo getPost("user");?>'> <br>
-<input type='password' name='passwd' value='<?php echo getPost("passwd");?>'> <br>
+<p>Login:</p>
+<input type='text' name='user' value='<?php echo error("user");?>'> <br>
+<p>Password:</p>
+<input type='password' name='passwd' value='<?php echo error("passwd");?>'> <br>
 <input type='submit' name='submit'>
 </form>
-
+</div>
 
 <?php
 include 'library/footer.php';

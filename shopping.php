@@ -9,29 +9,9 @@ Your section -->
 include 'library/header.php';
 head();
 $conn = connect();
-session_start();
-if (isset($_POST['submit'])) {
- if($_POST['submit'] == 'Buy one')
- {
-  $_SESSION['gummys']++;
- }
- elseif($_POST['submit'] == 'Remove one'){
- $_SESSION['gummys']--;
-
-}
- elseif($_POST['submit'] == 'Remove all')
-{
- $_SESSION['gummys']=0;
-
- }
-}
-else{
- $_SESSION['gummys']=0;
-}
-
 
 ?>
-<title>Shoppingpage3</title>
+<title>Shopping Page</title>
 <style>
 
 .divone{
@@ -46,6 +26,7 @@ else{
   margin: auto;
   border: 1px solid black;
 }
+
 .divthree{
  background-color:lightgrey;
   width: 120px;
@@ -54,7 +35,7 @@ else{
 }
 
 body{
-background-image:url("https://images.wsj.net/im-57265?width=1280&size=1.33333333");
+background-image:url("https://www.kttn.com/wp-content/uploads/2019/10/Walmart-Store.jpg");
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
@@ -62,32 +43,27 @@ background-size: 750px 650px;
 background-color: lightblue;
 }
 
-p{text-align:center;}
-
 </style>
-
 </head>
 
 <body>
-<div class="divone">
-<p>Order some Gummys</p>
-
-<form align="center" method="Post">
-<input type='submit' name='submit' value='Buy one'><br>
-<input type='submit' name='submit' value='Remove one'><br>
-<input type='submit' name='submit' value='Remove all'><br>
+<div class="divone"  align="center">
+<h1>Choose a shopping page</h1>
 </form>
 </div>
 <br>
-<div class="divone">
-<p>   Your cart contains <?php echo $_SESSION['gummys']; ?> Gummys</p>
+<div class="divtwo"  align="center">
+<a href="shopping1.php">Cheetos</a><br>
+<a href="shopping2.php">Sprite</a><br>
+<a href="shopping3.php">Gummys</a><br>
+<a href="shopping4.php">Cheese</a><br>
 </div>
+
 </body>
 <?php
 
 include 'library/footer.php';
 footer();
-boot();
 
 ?>
 </html>
